@@ -1,7 +1,7 @@
 <template>
   <div>
     <button type="button" class="btn btn-success" @click="newNote">Create</button>
-    <button type="button" class="btn btn-danger" @click="deleteNote">Delete</button>
+    <button type="button" class="btn btn-danger" @click="deleteLastNote">Delete</button>
   </div>
 </template>
 
@@ -14,7 +14,7 @@
       newNote() {
         this.$store.state.notes.push(this.$store.state.notes.length + 1);
       },
-      deleteNote() {
+      deleteLastNote() {
         this.$store.state.notes.pop();
       }
     }

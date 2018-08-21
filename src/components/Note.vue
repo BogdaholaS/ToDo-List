@@ -2,7 +2,7 @@
   <div class="noteBlock">
     <div>
       <div class="result" v-if="!isActive">{{note}}</div>
-      <transition name="slide2" appear v-else mode="out-in">
+      <transition name="slide2" appear v-else>
         <div class="editing form-group">
           <input type="text" class="form-control" v-model="note">
         </div>
@@ -26,7 +26,7 @@
     },
     methods: {
       deleteThis() {
-
+        this.$emit("deleting")
       }
     }
   }

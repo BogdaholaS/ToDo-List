@@ -4,7 +4,11 @@
       <create-note></create-note>
     </transition>
     <transition-group name="slide">
-      <note v-for="(number, index) in this.$store.state.notes" :key="index"></note>
+      <note
+        v-for="(number, index) in this.$store.state.notes"
+        :key="index + 1"
+        @deleting="deleteNote(index)">
+      </note>
     </transition-group>
   </div>
 </template>
@@ -13,10 +17,12 @@
   import CreateNote from "./components/CreateNote.vue";
   import Note from "./components/Note.vue";
   export default {
-    data: function () {
-      return {}
+    methods: {
+      deleteNote(index) {
+        console.log(index);
+        this.$store.state.notes.splice(index,1)
+      }
     },
-    methods: {},
     components: {
       createNote:CreateNote,
       note:Note
